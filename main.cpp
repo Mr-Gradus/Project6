@@ -30,3 +30,24 @@ public:
 		return *this;
 	}
 };
+
+void someOperation(int number)
+{
+	pcout() << "Start thread " << number << std::endl;
+	pcout() << "Stop thread " << number << std::endl;
+}
+
+
+int main()
+{
+	pcout() << "===================================================_Task_1_===========================================" << std::endl;
+	std::thread th1(someOperation, 1);
+	std::thread th2(someOperation, 2);
+	std::thread th3(someOperation, 3);
+	std::thread th4(someOperation, 4);
+	th1.join();
+	th2.join();
+	th3.join();
+	th4.join();
+	return 0;
+}
